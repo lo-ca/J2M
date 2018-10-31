@@ -29,9 +29,9 @@ J2M.prototype.to_markdown = function(str) {
             return Array(parseInt(level) + 1).join('#') + content;
         })
         // Bold
-        .replace(/\*(\S.*)\*/g, '**$1**')
+        .replace(/\*(\S[^*]*)\*/g, '**$1**')
         // Italic
-        .replace(/\_(\S.*)\_/g, '*$1*')
+        .replace(/\_(\S[^_]*)\_/g, '*$1*')
         // Monospaced text
         .replace(/\{\{([^}]+)\}\}/g, '`$1`')
         // Citations (buggy)
