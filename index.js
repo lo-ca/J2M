@@ -31,7 +31,7 @@ J2M.prototype.to_markdown = function(str) {
         // Bold
         .replace(/\*(\S[^*]*)\*/g, '**$1**')
         // Italic
-        .replace(/\_(\S[^_]*)\_/g, '*$1*')
+        .replace(/(?<!\\)\_(\S[^_]*)(?<!\\)\_/g, '*$1*')
         // Monospaced text
         .replace(/\{\{([^}]+)\}\}/g, '`$1`')
         // Citations (buggy)
@@ -49,7 +49,7 @@ J2M.prototype.to_markdown = function(str) {
         // Pre-formatted text
         .replace(/{noformat}/g, '```')
         // Un-named Links
-        .replace(/\[([^|]+)\]/g, '<$1>')
+        .replace(/(?<!\\)\[([^|]+)(?<!\\)\]/g, '<$1>')
         // Named Links
         .replace(/\[(.+?)\|(.+)\]/g, '[$1]($2)')
         // Single Paragraph Blockquote
