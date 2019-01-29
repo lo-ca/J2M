@@ -49,7 +49,7 @@ J2M.prototype.to_markdown = function(str) {
         // Pre-formatted text
         .replace(/{noformat}/g, '```')
         // Un-named Links
-        .replace(/(?<!\\)\[([^|]+)(?<!\\)\]/g, '<$1>')
+        .replace(/(?<!\\)\[([^|\]]+)(?<!\\)\]/g, '<$1>')
         // Images
         .replace(/!(.+)!/g, '![]($1)')
         // Named Links
